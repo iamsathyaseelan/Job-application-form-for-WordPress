@@ -34,6 +34,16 @@ if ( ! class_exists( 'Job_Application_Form_Public' ) ) {
 					'handle_job_application_form_submission',
 				)
 			);
+			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		}
+
+		/**
+		 * Register the JavaScript for the public-facing side of the site.
+		 *
+		 * @return void
+		 */
+		public function enqueue_scripts() {
+			wp_enqueue_script( JOB_APPLICATION_FORM_SLUG, plugin_dir_url( __FILE__ ) . 'js/job-application-form.js', array( 'jquery' ), JOB_APPLICATION_FORM_VERSION, true );
 		}
 
 		/**

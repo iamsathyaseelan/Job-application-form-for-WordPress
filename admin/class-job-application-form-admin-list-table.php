@@ -39,7 +39,7 @@ if ( ! class_exists( 'Job_Application_Form_Admin_List_Table' ) ) {
 		 * @return void
 		 */
 		public function no_items() {
-			esc_html_e( 'No applications found.' );
+			esc_html_e( 'No applications found.', 'job-application-form' );
 		}
 
 		/**
@@ -134,9 +134,10 @@ if ( ! class_exists( 'Job_Application_Form_Admin_List_Table' ) ) {
 			global $wpdb;
 			$current_action = $this->current_action();
 			if ( in_array( $current_action, array_keys( $this->get_bulk_actions() ) ) ) {
-				$application_ids = sanitize_key( wp_unslash( ! empty( $_REQUEST['application'] ) ? $_REQUEST['application'] : array() ) );
-				if ( ! is_array( $application_ids ) ) {
-					$application_ids = array( $application_ids );
+				if ( ! empty( $_REQUEST['application'] ) && is_array( $_REQUEST['application'] ) ) {
+					$application_ids = array_map( 'intval', $_REQUEST['application'] );
+				} else {
+					$application_ids = array( intval( $_REQUEST['application'] ) );
 				}
 				if ( ! empty( $application_ids ) ) {
 					foreach ( $application_ids as $application_id ) {
@@ -204,7 +205,7 @@ if ( ! class_exists( 'Job_Application_Form_Admin_List_Table' ) ) {
 		}
 
 		/**
-		 * Display Edit & Delete option for WorkFlow
+		 * Display delete option for application
 		 *
 		 * @param array $item Application details.
 		 *

@@ -2,7 +2,7 @@
 /**
  * Provide interface for listing the applications
  *
- * @package    Discount_Deals
+ * @package Job_Application_Form
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

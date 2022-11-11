@@ -25,7 +25,7 @@ if ( ! class_exists( 'Job_Application_Form' ) ) {
 		 */
 		public function __construct() {
 			$this->load_dependencies();
-			$this->init_public();
+			$this->init();
 
 		}//end __construct()
 
@@ -36,10 +36,11 @@ if ( ! class_exists( 'Job_Application_Form' ) ) {
 		 * @return void
 		 */
 		private function load_dependencies() {
-			/*
-			 * Include public related files.
-			 */
+			//Include public related files.
 			require_once JOB_APPLICATION_FORM_ABSPATH . 'public/class-job-application-form-public.php';
+
+			//Include admin related files.
+			require_once JOB_APPLICATION_FORM_ABSPATH . 'admin/class-job-application-form-admin.php';
 		}
 
 		/**
@@ -48,8 +49,11 @@ if ( ! class_exists( 'Job_Application_Form' ) ) {
 		 *
 		 * @return void
 		 */
-		private function init_public() {
+		private function init() {
+			//Init the public functionalities.
 			new Job_Application_Form_Public();
+			//Init the admin functionalities.
+			new Job_Application_Form_Admin();
 		}
 
 		/**

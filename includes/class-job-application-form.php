@@ -29,8 +29,18 @@ if ( ! class_exists( 'Job_Application_Form' ) ) {
 			$this->load_dependencies();
 			$this->init();
 
-		}//end __construct()
+			// Text domain.
+			add_action( 'init', array( $this, 'load_text_domain' ) );
+		}
 
+		/**
+		 * Load the plugin text domain for translation.
+		 *
+		 * @return void
+		 */
+		public function load_text_domain() {
+			load_plugin_textdomain( 'job-application-form', false, dirname( JOB_APPLICATION_FORM_PLUGIN_FILE ) . '/languages/' );
+		}
 
 		/**
 		 * Load the required dependencies for this plugin.

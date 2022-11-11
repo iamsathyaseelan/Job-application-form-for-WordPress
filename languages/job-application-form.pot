@@ -1,0 +1,215 @@
+# Copyright (C) 2022 Sathyaseelan
+# This file is distributed under the GPL-3.0+.
+msgid ""
+msgstr ""
+"Project-Id-Version: Job application form 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/Job-application-form-for-WordPress\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2022-11-11T11:35:14+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.6.0\n"
+"X-Domain: job-application-form\n"
+
+#. Plugin Name of the plugin
+msgid "Job application form"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://github.com/iamsathyaseelan/Job-application-form-for-WordPress.git"
+msgstr ""
+
+#. Description of the plugin
+msgid "Create simple form to collect job applications."
+msgstr ""
+
+#. Author of the plugin
+msgid "Sathyaseelan"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://github.com/iamsathyaseelan"
+msgstr ""
+
+#: admin/class-job-application-form-admin-list-table.php:29
+msgid "application"
+msgstr ""
+
+#: admin/class-job-application-form-admin-list-table.php:30
+msgid "applications"
+msgstr ""
+
+#: admin/class-job-application-form-admin-list-table.php:42
+msgid "No applications found."
+msgstr ""
+
+#: admin/class-job-application-form-admin-list-table.php:107
+msgid "Name"
+msgstr ""
+
+#: admin/class-job-application-form-admin-list-table.php:108
+#: public/partials/template-application-form.php:51
+msgid "Email Address"
+msgstr ""
+
+#: admin/class-job-application-form-admin-list-table.php:109
+#: public/partials/template-application-form.php:57
+msgid "Mobile Number"
+msgstr ""
+
+#: admin/class-job-application-form-admin-list-table.php:110
+#: public/partials/template-application-form.php:64
+msgid "Post Name"
+msgstr ""
+
+#: admin/class-job-application-form-admin-list-table.php:111
+msgid "Address"
+msgstr ""
+
+#: admin/class-job-application-form-admin-list-table.php:112
+msgid "Applied on"
+msgstr ""
+
+#: admin/class-job-application-form-admin-list-table.php:113
+#: public/partials/template-application-form.php:70
+msgid "CV"
+msgstr ""
+
+#: admin/class-job-application-form-admin-list-table.php:164
+#: admin/class-job-application-form-admin-list-table.php:217
+msgid "Delete"
+msgstr ""
+
+#: admin/class-job-application-form-admin-list-table.php:190
+msgid "Attachment not found!"
+msgstr ""
+
+#: admin/class-job-application-form-admin-list-table.php:193
+#: admin/partials/latest-job-applications-widget.php:16
+msgid "View CV"
+msgstr ""
+
+#: admin/class-job-application-form-admin.php:37
+msgid "Latest Job Applications"
+msgstr ""
+
+#: admin/class-job-application-form-admin.php:63
+#: admin/class-job-application-form-admin.php:64
+msgid "Job Applications"
+msgstr ""
+
+#: admin/class-job-application-form-admin.php:99
+msgid "Are you sure you want to delete multiple applications? This action cannot be undone later."
+msgstr ""
+
+#: admin/class-job-application-form-admin.php:100
+msgid "Are you sure you want to delete workflow? This action cannot be undone later."
+msgstr ""
+
+#: admin/partials/job-application-form-admin-list-table.php:29
+msgid "Applications"
+msgstr ""
+
+#: admin/partials/latest-job-applications-widget.php:14
+msgid "was applied to the position "
+msgstr ""
+
+#: public/class-job-application-form-public.php:63
+msgid "First name is required"
+msgstr ""
+
+#: public/class-job-application-form-public.php:73
+msgid "Last name is required"
+msgstr ""
+
+#: public/class-job-application-form-public.php:83
+msgid "Present address is required"
+msgstr ""
+
+#: public/class-job-application-form-public.php:93
+msgid "Email is required"
+msgstr ""
+
+#: public/class-job-application-form-public.php:103
+msgid "Mobile number is required"
+msgstr ""
+
+#: public/class-job-application-form-public.php:113
+msgid "Post name is required"
+msgstr ""
+
+#: public/class-job-application-form-public.php:122
+msgid "CV is required"
+msgstr ""
+
+#: public/class-job-application-form-public.php:131
+msgid "CV should be less than 5MB"
+msgstr ""
+
+#: public/class-job-application-form-public.php:142
+msgid "Error in uploading your CV"
+msgstr ""
+
+#: public/class-job-application-form-public.php:162
+msgid "Error in saving your CV"
+msgstr ""
+
+#: public/class-job-application-form-public.php:189
+msgid "Thank you for your application "
+msgstr ""
+
+#: public/class-job-application-form-public.php:193
+msgid "We have received your application. Shortly you will receive our email."
+msgstr ""
+
+#: public/class-job-application-form-public.php:201
+msgid "There is some problem in getting your application. Can you please try again later."
+msgstr ""
+
+#: public/partials/template-application-form-conformation-email.php:14
+msgid "Job application conformation"
+msgstr ""
+
+#: public/partials/template-application-form-conformation-email.php:17
+msgid "Hi "
+msgstr ""
+
+#. translators: %s: Post name
+#: public/partials/template-application-form-conformation-email.php:21
+msgid "Thank you for applying for the post %s.  "
+msgstr ""
+
+#: public/partials/template-application-form-conformation-email.php:23
+msgid "We will email you the further instructions on the next step. "
+msgstr ""
+
+#: public/partials/template-application-form-conformation-email.php:24
+msgid "Note if you have any other comments or questions for me, feel free to respond to this email as well. "
+msgstr ""
+
+#: public/partials/template-application-form-conformation-email.php:25
+msgid "Thanks, "
+msgstr ""
+
+#: public/partials/template-application-form.php:27
+msgid "First Name"
+msgstr ""
+
+#: public/partials/template-application-form.php:36
+msgid "Last Name"
+msgstr ""
+
+#: public/partials/template-application-form.php:39
+msgid "Ex: Miller"
+msgstr ""
+
+#: public/partials/template-application-form.php:45
+msgid "Present Address"
+msgstr ""
+
+#: public/partials/template-application-form.php:77
+msgid "Apply"
+msgstr ""

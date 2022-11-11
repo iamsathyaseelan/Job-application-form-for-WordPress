@@ -31,7 +31,7 @@ defined( 'JOB_APPLICATION_FORM_ABSPATH' ) || define( 'JOB_APPLICATION_FORM_ABSPA
 function activate_job_application_form() {
 	require_once JOB_APPLICATION_FORM_ABSPATH . 'includes/class-job-application-form-activator.php';
 	Job_Application_Form_Activator::activate();
-}//end activate_job_application_form()
+}
 
 register_activation_hook( __FILE__, 'activate_job_application_form' );
 

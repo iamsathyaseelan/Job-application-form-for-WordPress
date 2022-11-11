@@ -66,11 +66,11 @@ if ( ! class_exists( 'Job_Application_Form_Activator' ) ) {
 					last_name varchar(255) NOT NULL,
 					email_address varchar(255) NOT NULL,
 					mobile_number varchar(255) NOT NULL,
-					applied_post varchar(255) NOT NULL,
-					address text DEFAULT NULL,
+					post_name varchar(255) NOT NULL,
+					present_address text DEFAULT NULL,
 				    cv bigint(20) UNSIGNED NOT NULL,
-					dd_created_at datetime NOT NULL,
-					dd_updated_at datetime NOT NULL, 
+					created_at datetime NOT NULL,
+					updated_at datetime NOT NULL, 
 					PRIMARY KEY  ( id )
 					) $collate;
 			";

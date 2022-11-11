@@ -32,3 +32,17 @@ function activate_job_application_form() {
 }//end activate_discount_deals()
 
 register_activation_hook( __FILE__, 'activate_job_application_form' );
+
+
+/**
+ * Start the plugin.
+ *
+ * @return Job_Application_Form
+ */
+function job_application_form() {
+	require_once JOB_APPLICATION_FORM_ABSPATH . 'includes/class-job-application-form.php';
+
+	return Job_Application_Form::run();
+}
+
+job_application_form();

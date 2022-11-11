@@ -1,6 +1,8 @@
 <?php
 /**
  * The applications listing functionality in admin area.
+ *
+ * @package Job_Application_Form
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -61,7 +63,7 @@ if ( ! class_exists( 'Job_Application_Form_Admin_List_Table' ) ) {
 			}
 
 			// Set order by query in where.
-			$order = ! empty( $_REQUEST['orderby'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['order'] ) ) : 'desc';
+			$order = ! empty( $_REQUEST['order'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['order'] ) ) : 'desc';
 
 			$per_page     = 50;
 			$current_page = $this->get_pagenum();
@@ -71,9 +73,17 @@ if ( ! class_exists( 'Job_Application_Form_Admin_List_Table' ) ) {
 			$total_items = $wpdb->get_var( "SELECT count(*) FROM `{$wpdb->prefix}applicant_submissions`" );
 
 			if ( empty( $search_keyword ) ) {
-				$items = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM `{$wpdb->prefix}applicant_submissions` ORDER BY created_at $order LIMIT %d OFFSET %d", $per_page, $offset ), ARRAY_A );
+				if ( 'asc' === strtolower( $order ) ) {
+					$items = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM `{$wpdb->prefix}applicant_submissions` ORDER BY created_at ASC LIMIT %d OFFSET %d", $per_page, $offset ), ARRAY_A );
+				} else {
+					$items = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM `{$wpdb->prefix}applicant_submissions` ORDER BY created_at DESC LIMIT %d OFFSET %d", $per_page, $offset ), ARRAY_A );
+				}
 			} else {
-				$items = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM `{$wpdb->prefix}applicant_submissions` WHERE 1 = 1 AND (first_name like %s OR last_name like %s OR email_address like %s OR post_name like %s OR present_address like %s)  ORDER BY created_at $order LIMIT %d OFFSET %d", $search_keyword, $search_keyword, $search_keyword, $search_keyword, $search_keyword, $per_page, $offset ), ARRAY_A );
+				if ( 'asc' === strtolower( $order ) ) {
+					$items = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM `{$wpdb->prefix}applicant_submissions` WHERE 1 = 1 AND (first_name like %s OR last_name like %s OR email_address like %s OR post_name like %s OR present_address like %s)  ORDER BY created_at ASC LIMIT %d OFFSET %d", $search_keyword, $search_keyword, $search_keyword, $search_keyword, $search_keyword, $per_page, $offset ), ARRAY_A );
+				} else {
+					$items = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM `{$wpdb->prefix}applicant_submissions` WHERE 1 = 1 AND (first_name like %s OR last_name like %s OR email_address like %s OR post_name like %s OR present_address like %s)  ORDER BY created_at DESC LIMIT %d OFFSET %d", $search_keyword, $search_keyword, $search_keyword, $search_keyword, $search_keyword, $per_page, $offset ), ARRAY_A );
+				}
 			}
 
 			$this->set_pagination_args(
@@ -158,7 +168,7 @@ if ( ! class_exists( 'Job_Application_Form_Admin_List_Table' ) ) {
 		 * Return default value for the application
 		 *
 		 * @param array|object $item Application details.
-		 * @param string $column_name Column name.
+		 * @param string       $column_name Column name.
 		 *
 		 * @return boolean|mixed|string|void
 		 */
@@ -176,7 +186,7 @@ if ( ! class_exists( 'Job_Application_Form_Admin_List_Table' ) ) {
 		public function column_cv( $item ) {
 			$attachment = wp_get_attachment_url( $item['cv'] );
 			if ( empty( $attachment ) ) {
-				return __( "Attachment not found!", 'job-application-form' );
+				return __( 'Attachment not found!', 'job-application-form' );
 			}
 
 			return sprintf( '<a href="%s" target="_blank">%s</a>', $attachment, __( 'View CV', 'job-application-form' ) );
@@ -201,12 +211,12 @@ if ( ! class_exists( 'Job_Application_Form_Admin_List_Table' ) ) {
 		 * @return string
 		 */
 		public function column_name( $item ) {
-			$page    = esc_attr( ! empty( $_REQUEST['page'] ) ? $_REQUEST['page'] : '' );
+			$page    = esc_attr( ! empty( $_REQUEST['page'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['page'] ) ) : '' );
 			$actions = array(
 				'delete' => sprintf( '<a href="?page=%s&action=%s&application=%s">%s</a>', $page, 'delete', $item['id'], __( 'Delete', 'job-application-form' ) ),
 			);
 
-			return sprintf( '%1$s %2$s', sprintf( '<p>%s</p>', $item['first_name'] . " " . $item['last_name'] ), $this->row_actions( $actions ) );
+			return sprintf( '%1$s %2$s', sprintf( '<p>%s</p>', $item['first_name'] . ' ' . $item['last_name'] ), $this->row_actions( $actions ) );
 		}
 
 		/**

@@ -1,6 +1,8 @@
 <?php
 /**
  * This file will handle all the functionalities of admin.
+ *
+ * @package Job_Application_Form
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

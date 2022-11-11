@@ -10,6 +10,8 @@
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain:       job-application-form
  * Domain Path:       /languages
+ *
+ * @package Job_Application_Form
  */
 
 if ( ! defined( 'WPINC' ) ) {
@@ -29,7 +31,7 @@ defined( 'JOB_APPLICATION_FORM_ABSPATH' ) || define( 'JOB_APPLICATION_FORM_ABSPA
 function activate_job_application_form() {
 	require_once JOB_APPLICATION_FORM_ABSPATH . 'includes/class-job-application-form-activator.php';
 	Job_Application_Form_Activator::activate();
-}//end activate_discount_deals()
+}//end activate_job_application_form()
 
 register_activation_hook( __FILE__, 'activate_job_application_form' );
 

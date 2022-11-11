@@ -1,6 +1,8 @@
 <?php
 /**
  * Fired during plugin activation.
+ *
+ * @package Job_Application_Form
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
